@@ -178,7 +178,7 @@ namespace WizTecBasicSalesCalc
             //XML
             var xmlPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\ExportXml.xml";
             XmlSerializer serialiser = new XmlSerializer(typeof(List<Product>));
-            TextWriter exportedXml = new StreamWriter(xmlPath + "ExportedXml.xml");
+            TextWriter exportedXml = new StreamWriter(xmlPath);
             serialiser.Serialize(exportedXml, output);
             exportedXml.Close();
         }
