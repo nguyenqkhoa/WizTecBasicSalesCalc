@@ -164,10 +164,10 @@ namespace WizTecBasicSalesCalc
         //Exports to WizTecBasicSalesCalc\bin\Build\netcoreapp3.1\"ExportedText"
         private void Export_Click(object sender, EventArgs e)
         {
-            var textPath = Path.Combine(Directory.GetCurrentDirectory());
+            var textPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\ExportText.txt";
 
             //Text
-            TextWriter exportedText = new StreamWriter(textPath + "ExportedText.txt");
+            TextWriter exportedText = new StreamWriter(textPath);
 
             foreach (var p in output)
             {
@@ -176,9 +176,9 @@ namespace WizTecBasicSalesCalc
             exportedText.Close();
 
             //XML
-            var xmlPath = Path.Combine(Directory.GetCurrentDirectory());
+            var xmlPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\ExportXml.xml";
             XmlSerializer serialiser = new XmlSerializer(typeof(List<Product>));
-            TextWriter exportedXml = new StreamWriter(xmlPath + "ExportedText.xml");
+            TextWriter exportedXml = new StreamWriter(xmlPath + "ExportedXml.xml");
             serialiser.Serialize(exportedXml, output);
             exportedXml.Close();
         }
