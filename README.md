@@ -9,9 +9,12 @@ When a product is selected, it is added to the current transaction. The transact
 
 A cancel or void button which, when pressed, clears and restarts the sale
 
-A save or export button which, when pressed, saves or exports the current transaction in a JSON, XML, or text format. - Implemented
+A save or export button which, when pressed, saves or exports the current transaction in a JSON, XML, or text format. - Implemented if opened with visual studio 2019+
 
 
-To run: Download files and place files in local folder, open to WizTecBasicSalesCalc-master\WizTecBasicSalesCalc and open the WizTecBasicSalesCalc.exe application
+To run: Clone the reposistory in visual studio 2019 (or above), build and run.
 
-When exported the current transaction the .txt and .xml file will be located in the same folder as the .exe
+Export button will place the text and xml files under \source\repos\WizTecBasicSalesCalc\bin\Build\netcoreapp3.1
+
+It is possible to download the reposistory as a zip file and open to WizTecBasicSalesCalc-master\WizTecBasicSalesCalc and open the WizTecBasicSalesCalc.exe application but the export function does not work.
+
