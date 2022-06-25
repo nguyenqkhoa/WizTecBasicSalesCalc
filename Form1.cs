@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Serialization;
+
 
 //1 - An interface showing products, the transaction,
 //subtotal amount, tax amount, the final amount,
@@ -30,7 +33,7 @@ namespace WizTecBasicSalesCalc
         //each with their own price, option to apply a 10% VAT tax,
         //and belonging to 1 of 3 groups.
         //You are free to decide what the products, groups, and prices are.
-        class Product
+        public class Product
         {
             public double price { get; set; }
             public string type { get; set; }
@@ -155,16 +158,27 @@ namespace WizTecBasicSalesCalc
             this.Sales.Text = "";
         }
 
-        //Todo
+        //Todo - Added
         //5 - A save or export button which, when pressed,
         //saves or exports the current transaction in a JSON, XML, or text format.
         //Exports to WizTecBasicSalesCalc\bin\Build\netcoreapp3.1\"ExportedText"
         private void Export_Click(object sender, EventArgs e)
         {
+            //Text
+            TextWriter exportedText = new StreamWriter("ExportedText.txt");
 
+            foreach (var p in output)
+            {
+                exportedText.WriteLine(p.item);
+            }
+            exportedText.Close();
+
+            //XML
+            XmlSerializer serialiser = new XmlSerializer(typeof(List<Product>));
+            TextWriter exportedXml = new StreamWriter("ExportedText.xml");
+            serialiser.Serialize(exportedXml, output);
+            exportedXml.Close();
         }
-
-
 
         //3 - When a product is selected, it is added to the current transaction.
         //The transaction must support up to 10 different products,

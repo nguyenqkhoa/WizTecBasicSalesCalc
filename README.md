@@ -9,7 +9,9 @@ When a product is selected, it is added to the current transaction. The transact
 
 A cancel or void button which, when pressed, clears and restarts the sale
 
-A save or export button which, when pressed, saves or exports the current transaction in a JSON, XML, or text format. - Still needs to be implemented
+A save or export button which, when pressed, saves or exports the current transaction in a JSON, XML, or text format. - Implemented
 
 
 To run: Download files and place files in local folder, open to WizTecBasicSalesCalc-master\WizTecBasicSalesCalc and open the WizTecBasicSalesCalc.exe application
+
+When exported the current transaction the .txt and .xml file will be located in the same folder as the .exe
